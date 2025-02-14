@@ -22,8 +22,45 @@
             justify-content: center;
             align-items: center;
             color: white;
-            flex-direction: column;
+            flex-direction: row;
             text-align: center;
+            transition: background 0.5s ease-in-out;
+        }
+
+        /* Sidebar Styles */
+        .sidebar {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 250px;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 20px;
+            border-right: 2px solid #f50057;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.2rem;
+            text-align: center;
+        }
+
+        /* Sidebar Links */
+        .sidebar a {
+            color: white;
+            text-decoration: none;
+            margin: 20px 0;
+            padding: 10px;
+            border: 1px solid #f50057;
+            border-radius: 8px;
+            width: 100%;
+            text-align: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .sidebar a:hover {
+            background-color: #d5006d;
         }
 
         /* Overlay to darken the background */
@@ -36,15 +73,16 @@
             background: rgba(0, 0, 0, 0.5); /* Dark semi-transparent overlay */
         }
 
-        /* Card Styles */
-        .card {
+        /* Content Card */
+        .content {
             position: relative;
             background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white */
             padding: 30px;
             border-radius: 15px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-            width: 80%;
+            width: 70%;
             max-width: 600px;
+            z-index: 2;
         }
 
         /* Main Message */
@@ -83,11 +121,17 @@
     </style>
 </head>
 <body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <a href="#" onclick="goHome()">Home</a>
+        <a href="#" onclick="showFlirtyMessage()">Discord Nitro</a>
+    </div>
+
     <!-- Overlay for darkening the background -->
     <div class="overlay"></div>
 
     <!-- Content Card -->
-    <div class="card">
+    <div class="content">
         <h1 class="message">I hope you get better</h1>
         <p class="date">2/14/25 – More gifts otw</p>
 
@@ -116,6 +160,19 @@
             const textElement = document.querySelector('.blurred-text');
             textElement.classList.add('unblurred');
             textElement.innerHTML = randomQuote;  // Change text to a random quote
+        }
+
+        // Function to go back to the home page (reset the page)
+        function goHome() {
+            location.reload(); // Reloads the page to "reset" everything
+        }
+
+        // Function to show a flirty message when Discord Nitro is clicked
+        function showFlirtyMessage() {
+            alert("Not yet, you have to wait ;)");  // Flirty message in an alert box
+            // Change background to Nitro GIF after clicking
+            document.body.style.background = "url('https://i.pinimg.com/originals/15/8b/88/158b886aca8ce4421934166eed498481.gif') no-repeat center center fixed";
+            document.body.style.backgroundSize = "cover"; // Make sure the GIF covers the entire background
         }
     </script>
 </body>
