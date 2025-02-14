@@ -16,7 +16,7 @@
         body {
             font-family: 'Arial', sans-serif;
             height: 100vh;
-            background: url('https://i.pinimg.com/originals/0d/97/52/0d9752d099359e13b3b6defc75c28072.gif') no-repeat center center fixed;
+            background: url('https://i.pinimg.com/originals/38/bb/ee/38bbeea8ea67ca9ac36ac5bf4c058d86.gif') no-repeat center center fixed;
             background-size: cover;
             display: flex;
             justify-content: center;
@@ -92,15 +92,30 @@
         <p class="date">2/14/25 – More gifts otw</p>
 
         <!-- Blurred Text Block -->
-        <div class="blurred-text" onclick="unblurText()">Click me</div>
+        <div class="blurred-text" onclick="showRandomQuote()">Click me</div>
     </div>
 
     <script>
-        // Function to unblur the text when clicked
-        function unblurText() {
+        // Array of love and get better quotes
+        const quotes = [
+            "Love is not about how many days, months, or years you’ve been together. Love is about how much you love each other every day.",
+            "You make me feel alive in every way. My heart beats only for you.",
+            "Every time I see you, I fall in love all over again.",
+            "When I saw you, I fell in love, and you smiled because you knew.",
+            "Life is tough, but so are you. Get well soon.",
+            "Wishing you strength, love, and light to get better. You’ve got this!",
+            "The pain you feel today will be the strength you feel tomorrow. Get better soon.",
+            "I know you’re stronger than you think. Get better and come back even stronger.",
+            "Love heals all. Get well soon!",
+            "Sending you a little sunshine and a lot of love to help you feel better."
+        ];
+
+        // Function to show a random quote
+        function showRandomQuote() {
+            const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
             const textElement = document.querySelector('.blurred-text');
             textElement.classList.add('unblurred');
-            textElement.innerHTML = 'Remember, you are worth it';  // Update the text when clicked
+            textElement.innerHTML = randomQuote;  // Change text to a random quote
         }
     </script>
 </body>
