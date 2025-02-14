@@ -22,9 +22,9 @@
             justify-content: center;
             align-items: center;
             color: white;
-            flex-direction: row;
             text-align: center;
-            transition: background 0.5s ease-in-out;
+            overflow-x: hidden; /* Prevent horizontal scroll */
+            position: relative;
         }
 
         /* Sidebar Styles */
@@ -45,6 +45,7 @@
             font-size: 1.2rem;
             text-align: left;
             transition: left 0.3s ease-in-out;
+            z-index: 1000; /* Ensure it stays on top */
         }
 
         /* Sidebar Links */
@@ -74,6 +75,7 @@
             height: 100%;
             background: rgba(0, 0, 0, 0.5); /* Dark semi-transparent overlay */
             display: none;
+            z-index: 999; /* Overlay just below the sidebar */
         }
 
         /* Content Card */
@@ -85,7 +87,7 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
             width: 70%;
             max-width: 600px;
-            z-index: 2;
+            z-index: 1; /* Ensure it stays behind the sidebar */
         }
 
         /* Main Message */
