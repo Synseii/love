@@ -12,30 +12,60 @@
             box-sizing: border-box;
         }
 
-        /* Container */
-        .container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
+        /* Body and Background */
+        body {
+            font-family: 'Arial', sans-serif;
             background-color: #f9e2e2; /* Soft pink background */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
             text-align: center;
         }
 
-        /* Message Text */
+        /* Card Styles */
+        .card {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 80%;
+            max-width: 600px;
+        }
+
+        /* Main Message */
         .message {
-            font-size: 3rem;
-            font-family: 'Arial', sans-serif;
-            color: #d5006d; /* Bold pink color */
+            font-size: 2rem;
+            font-weight: bold;
+            color: #d5006d;
             margin-bottom: 20px;
         }
 
         /* Date Text */
         .date {
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             color: #f50057;
             margin-bottom: 20px;
+        }
+
+        /* Blurred Text */
+        .blurred-text {
+            font-size: 1.5rem;
+            color: #444;
+            padding: 20px;
+            background-color: #f8f8f8;
+            border-radius: 8px;
+            text-align: center;
+            cursor: pointer;
+            transition: filter 0.3s ease-in-out;
+            filter: blur(5px);
+            user-select: none;
+        }
+
+        /* Unblurred Text after Click */
+        .blurred-text.unblurred {
+            filter: blur(0);
         }
 
         /* GIF Styling */
@@ -47,10 +77,22 @@
     </style>
 </head>
 <body>
-    <div class="container">
+    <div class="card">
         <h1 class="message">I hope you get better</h1>
         <p class="date">2/14/25 – More gifts otw</p>
         <img src="https://i.pinimg.com/originals/0d/97/52/0d9752d099359e13b3b6defc75c28072.gif" alt="Valentine's Day Gif" class="gif">
+
+        <!-- Blurred Text Block -->
+        <div class="blurred-text" onclick="unblurText()">Click me</div>
     </div>
+
+    <script>
+        // Function to unblur the text when clicked
+        function unblurText() {
+            const textElement = document.querySelector('.blurred-text');
+            textElement.classList.add('unblurred');
+            textElement.innerHTML = 'Remember, you are worth it';  // Update the text when clicked
+        }
+    </script>
 </body>
 </html>
